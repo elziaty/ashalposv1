@@ -11,6 +11,8 @@
 |
 */
 
+// تسجيل قناة البث الخاصة بالمستخدم
 Broadcast::channel('App.User.{id}', function ($user, $id) {
+    // تحقق مما إذا كان المستخدم المخول يطابق المعرف
     return (int) $user->id === (int) $id;
 });

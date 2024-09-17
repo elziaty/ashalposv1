@@ -17,7 +17,7 @@ Route::post('/sales-list-data/{id}', [SalesController::class, 'salesListGetData'
 Route::post('/sales/list/delete/{id}', [SalesController::class, 'saleListDelete']);
 Route::post('/sales/date/update/{id}', [SalesController::class, 'saleListUpdate']);
 
-//sales shipment list
+// قائمة شحن المبيعات
 Route::post('/sales-shipment-data/{id}', [SalesShipmentController::class, 'salesListShipment']);
 Route::post('/shipping-order-status/{id}/{status}', [SalesShipmentController::class, 'setShippingStatus']);
 Route::post('sales-receiving-type-set', [SalesController::class, 'setSalesReceivingType']);
@@ -39,10 +39,10 @@ Route::get('/get-register-amount/{id}', [SalesController::class, 'getRegisterAmo
 Route::post('/save-due-amount', [SalesController::class, 'saveDueAmount']);
 Route::post('/offline-sales', [SalesController::class, 'offlineSalesStore']);
 
-// Customer sales sms
+// إرسال رسائل نصية للمبيعات للعملاء
 Route::post('/customer-send-sms', [SalesController::class, 'customerSendSms']);
 
-// Restaurant
+// المطعم
 Route::post('get-table-list', [RestaurantTableController::class, 'getTableList']);
 Route::get('/tables', [RestaurantTableController::class, 'index']);
 Route::post('/addTable', [RestaurantTableController::class, 'store']);
@@ -50,7 +50,7 @@ Route::post('/editTable/{id}', [RestaurantTableController::class, 'update']);
 Route::get('/edit-table/{id}', [RestaurantTableController::class, 'getRowTable']);
 Route::post('/delete-table/{id}', [RestaurantTableController::class, 'deleteTable']);
 
-// Adjust Stock
+// تعديل المخزون
 Route::get('/adjust-stock-list', [AdjustProductStockController::class, 'getData']);
 Route::post('/adjust-stock-list', [AdjustProductStockController::class, 'getAdjustStockList']);
 Route::post('/add-adjust-stock', [AdjustProductStockController::class, 'store'])
@@ -61,7 +61,7 @@ Route::post('/delete-adjust-stock/{id}', [AdjustProductStockController::class, '
     ->middleware('permissions:can_manage_adjust_stock');
 Route::get('/adjust-stock-details/{id}', [AdjustProductStockController::class, 'getAdjustStockDetailsData']);
 
-//sales register
+// سجلات المبيعات
 Route::get('/cash-registers', [CashRegisterController::class, 'getCashRegisterList']);
 Route::post('cash-registers', [CashRegisterController::class, 'index']);
 Route::post('cash-register-store', [CashRegisterController::class, 'store'])

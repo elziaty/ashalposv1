@@ -1,25 +1,24 @@
 {
   "private": true,
   "scripts": {
-    "dev": "npm run development",
-    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "watch-poll": "npm run watch -- --watch-poll",
-    "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "prod": "npm run production",
-    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    "dev": "",
+    "development": "",
+    "watch": "",
+    "watch-poll": "",
+    "hot": "",
+    "prod": "",
+    "production": ""
   },
   "devDependencies": {
-    "axios": "^0.17",
+    "axios": "^1.0.0",
     "babel-preset-env": "^1.7.0",
-    "bootstrap": "^4.3.1",
-    "cross-env": "^5.2.1",
+    "bootstrap": "^5.0.0",
+    "cross-env": "^7.0.0",
     "hammerjs": "^2.0.8",
-    "jquery": "^3.4.1",
-    "laravel-mix": "^2.1.14",
-    "lodash": "^4.17.15",
+    "jquery": "^3.6.0",
+    "lodash": "^4.17.21",
     "popper.js": "^1.16.0",
-    "vue": "^2.6.10"
+    "vue": "^3.2.0"
   },
   "dependencies": {
     "@popperjs/core": "^2.9.1",
@@ -28,21 +27,21 @@
     "date-fns": "^1.30.1",
     "fecha": "^3.0.3",
     "img-loader": "^3.0.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.0",
     "number-currency-format": "^1.0.10",
     "print-js": "^1.6.0",
     "print-this": "^1.15.1",
-    "vee-validate": "^2.2.15",
-    "vue-chartjs": "^3.5.0",
-    "vue-cookies": "^1.5.13",
+    "vee-validate": "^3.4.5",
+    "vue-chartjs": "^4.0.1",
+    "vue-cookies": "^1.7.0",
     "vue-js-popover": "^1.1.8",
-    "vue-moment": "^3.2.0",
+    "vue-moment": "^4.0.0",
     "vue-shortkey": "^3.1.7",
     "vue-tel-input": "^4.3.0",
     "vue-timeselector": "^1.0.0",
-    "vue-toasted": "^1.1.27",
+    "vue-toasted": "^1.1.28",
     "vuejs-datepicker": "^1.6.2",
     "vuelidate": "^0.7.4",
-    "xlsx": "^0.14.5"
+    "xlsx": "^0.16.0"
   }
 }

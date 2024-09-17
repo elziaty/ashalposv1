@@ -1,10 +1,11 @@
 <?php
 
-//customer
+// استيراد المتحكمات اللازمة
 use App\Http\Controllers\API\CustomerController;
 use App\Http\Controllers\API\CustomerGroupController;
 use App\Http\Controllers\API\SupplierController;
 
+// مسارات العملاء
 Route::post('/customer-list', [CustomerController::class, 'getCustomerList']);
 Route::post('import-customer-contacts', [CustomerController::class, 'importCustomers']);
 Route::post('/customer/store', [CustomerController::class, 'store'])
@@ -18,7 +19,7 @@ Route::post('/customer/delete/{id}', [CustomerController::class, 'deleteCustomer
 Route::get('/customer-data/{id}', [CustomerController::class, 'getCustomerData']);
 Route::post('/update-customer-avatar/{id}', [CustomerController::class, 'updateAvatar']);
 
-//supplier
+// مسارات الموردين
 Route::post('import-supplier-contacts', [SupplierController::class, 'importSuppliers']);
 Route::post('supplier/store', [SupplierController::class, 'store']);
 Route::post('/supplier-list', [SupplierController::class, 'getSupplierData']);
@@ -29,7 +30,7 @@ Route::post('supplier/delete/{id}', [SupplierController::class, 'deleteSupplier'
 Route::post('supplier-delivery-report/{id}', [SupplierController::class, 'getSupplierDeliveryRecords']);
 Route::post('/update-supplier-avatar/{id}', [SupplierController::class, 'updateAvatar']);
 
-// groups
+// مسارات المجموعات
 Route::get('/groups', [CustomerGroupController::class, 'index']);
 Route::post('/groups', [CustomerGroupController::class, 'getGroups']);
 Route::post('/group/store', [CustomerGroupController::class, 'store'])

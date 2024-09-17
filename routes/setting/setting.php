@@ -24,7 +24,7 @@ Route::get('/get-template-content/{id}', [EmailTemplateController::class, 'show'
 Route::post('/set-custom-content/{id}', [EmailTemplateController::class, 'update'])->middleware('permissions:can_edit_email_template');
 Route::get('/knowDefaultRowSettings', [SettingController::class, 'knowDefaultRowSettings']);
 
-//Sms template Route
+// Sms template Route
 Route::post('sms-template-list', [SmsTemplateController::class, 'index']);
 Route::get('/get-sms-template-content/{id}', [SmsTemplateController::class, 'show'])->middleware('permissions:can_edit_sms_template');
 Route::post('/set-sms-custom-content/{id}', [SmsTemplateController::class, 'update'])->middleware('permissions:can_edit_sms_template');
@@ -49,7 +49,6 @@ Route::get('timezone', [ProfileController::class, 'getTimezone']);
 // Invoice Settings Route
 Route::post('invoice-setting-save', [SettingController::class, 'invoiceSettingsSave'])
     ->middleware('permissions:can_manage_invoice_setting');
-
 Route::get('invoice-settings', [SettingController::class, 'getInvoiceSettings'])
     ->middleware('permissions:can_manage_invoice_setting');
 Route::get('invoice-setting-data', [SettingController::class, 'invoiceSettingData']);
@@ -83,15 +82,15 @@ Route::post('/delete-role/{id}', [RoleController::class, 'delete'])
     ->middleware('permissions:can_manage_roles');
 Route::get('roles', [RoleController::class, 'index']);
 
-//Product setting route
+// Product setting route
 Route::get('/product-setting', [SettingController::class, 'productSetting']);
 Route::post('/product-setting-save', [SettingController::class, 'productSettingSave']);
 
-//Selling setting route
+// Selling setting route
 Route::get('/sales-setting', [SettingController::class, 'salesSetting']);
 Route::post('/sales-setting-save', [SettingController::class, 'salesSettingSave']);
 
-//Notification Settings route should remove
+// Notification Settings route should remove
 Route::get('/notification-setting', [SettingController::class, 'notificationSetting']);
 Route::post('/notification-setting-save', [SettingController::class, 'notificationSettingSave']);
 Route::post('/low-stock-notification-setting-save', [SettingController::class, 'lowStockNotificationSettingSave']);
@@ -110,7 +109,7 @@ Route::get('/get-user/{id}', [UserController::class, 'getRowUser']);
 Route::post('/enable-disable-user/{id}', [UserController::class, 'enableUser']);
 Route::post('/make-admin-user/{id}', [UserController::class, 'newAdminUser']);
 
-//tax
+// Tax
 Route::post('/tax-list', [TaxController::class, 'getData']);
 Route::get('/tax-list', [TaxController::class, 'taxGetDate']);
 Route::post('/add-tax', [TaxController::class, 'store'])
@@ -122,7 +121,7 @@ Route::post('/delete-tax/{id}', [TaxController::class, 'deleteTax'])
     ->middleware('permissions:can_manage_tax_settings');
 Route::post('/edit-tax/{id}', [UserController::class, 'editTax']);
 
-//Shipping area
+// Shipping area
 Route::post('/area-list', [ShippingAreaController::class, 'areaListGetData']);
 Route::get('/get-areal-list', [ShippingAreaController::class, 'areaGetData']);
 Route::post('/add-shipping-area', [ShippingAreaController::class, 'store'])
@@ -133,7 +132,7 @@ Route::get('/edit-shipping-area/{id}', [ShippingAreaController::class, 'getRowSh
 Route::post('/edit-shipping-area/{id}', [ShippingAreaController::class, 'update'])
     ->middleware('permissions:can_manage_shipping_area');
 
-//branches
+// Branches
 Route::get('/allBranches', [BranchController::class, 'getAllBranches']);
 Route::get('/branches', [BranchController::class, 'index']);
 Route::post('/branches', [BranchController::class, 'getBranchList']);
@@ -148,10 +147,10 @@ Route::post('/delete-branch/{id}', [BranchController::class, 'deleteBranch'])
     ->middleware('permissions:can_manage_branches');
 Route::get('/branches-and-adjust-type', [BranchController::class, 'getBranchAndAdjustType']);
 
-//branch settings
+// Branch settings
 Route::get('/branch-settings-support-data', [SettingController::class, 'getDataForBranchSettings']);
 
-//payment
+// Payment
 Route::get('/payment-list', [PaymentController::class, 'getData']);
 Route::post('/payment-list', [PaymentController::class, 'getPaymentList']);
 Route::post('/add-payment', [PaymentController::class, 'store'])
@@ -164,12 +163,12 @@ Route::get('/payment-details/{id}', [PaymentController::class, 'getPaymentDetail
 Route::get('/invoice-logo', [PaymentController::class, 'getInvoiceLogo']);
 Route::get('/get-auto-invoice', [PaymentController::class, 'getAutoInvoice']);
 
-//users
+// Users
 Route::post('/users-list', [UserController::class, 'getUsersList']);
 Route::get('/user/{id}', [UserController::class, 'userDetail']);
 Route::get('/userChartData/{id}', [UserController::class, 'getUser']);
 
-//keyboard shortcuts
+// Keyboard shortcuts
 Route::post('shortcuts', [SettingController::class, 'storeKeyboardShortcutSettings']);
 Route::get('shortcut-setting-data/{id}', [SettingController::class, 'getShortcutSettings']);
 

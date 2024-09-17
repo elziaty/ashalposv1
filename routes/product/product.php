@@ -10,12 +10,13 @@ use App\Http\Controllers\API\ProductsController;
 use App\Http\Controllers\API\ProductUnitsController;
 use Illuminate\Support\Facades\Route;
 
+// مجموعة من المسارات الخاصة بالمنتجات
 Route::group(['prefix' => 'products', 'as' => 'products'], function () {
+    // عرض قائمة المنتجات
     Route::get('products', [ProductApiController::class, 'index']);
 
-    // Products
+    // مسارات المنتجات
     Route::post('products', [ProductsController::class, 'getProduct']);
-
     Route::post('store', [ProductsController::class, 'storeProduct'])
         ->middleware('permissions:can_manage_products');
 
@@ -23,11 +24,8 @@ Route::group(['prefix' => 'products', 'as' => 'products'], function () {
         ->middleware('permissions:can_manage_products');
 
     Route::get('all-supporting-data', [ProductsController::class, 'productSupportingData']);
-
     Route::get('edit-product/{id}', [ProductsController::class, 'getProductEditData']);
-
     Route::post('edit/{id}', [ProductsController::class, 'editProduct']);
-
     Route::get('getDetails/{id}', [ProductsController::class, 'getProductDetails']);
     Route::post('variantDetails/{id}', [ProductsController::class, 'getVariantDetails']);
     Route::post('/import', [ProductsController::class, 'importProduct'])
@@ -38,10 +36,10 @@ Route::group(['prefix' => 'products', 'as' => 'products'], function () {
     Route::post('/adjust-stock', [ProductsController::class, 'adjustStockData']);
     Route::get('/search-product-for-stock-adjustment', [ProductsController::class, 'searchProductForStockAdjust']);
 
-    // Variants
+    // مسارات المتغيرات
     Route::get('variant/{id}', [ProductsController::class, 'showVariant']);
 
-    // Product Category
+    // مسارات فئات المنتجات
     Route::get('category', [ProductCategoriesController::class, 'index']);
     Route::post('categories', [ProductCategoriesController::class, 'getCategory']);
     Route::post('category/store', [ProductCategoriesController::class, 'storeCategory'])
@@ -52,7 +50,7 @@ Route::group(['prefix' => 'products', 'as' => 'products'], function () {
     Route::post('category/{id}', [ProductCategoriesController::class, 'updateCategory'])
         ->middleware('permissions:can_manage_categories');
 
-    // Product Brand
+    // مسارات علامات المنتجات
     Route::get('brand', [ProductBrandsController::class, 'index']);
     Route::post('brands', [ProductBrandsController::class, 'getBrand']);
     Route::post('brand/store', [ProductBrandsController::class, 'storeBrand'])
@@ -62,7 +60,7 @@ Route::group(['prefix' => 'products', 'as' => 'products'], function () {
     Route::post('brand/{id}', [ProductBrandsController::class, 'updateBrand'])
         ->middleware('permissions:can_manage_brands');
 
-    // Product Group
+    // مسارات مجموعات المنتجات
     Route::get('group', [ProductGroupsController::class, 'getGroup']);
     Route::post('groups', [ProductGroupsController::class, 'getAllGroup']);
     Route::post('group/store', [ProductGroupsController::class, 'storeGroup'])
@@ -75,7 +73,7 @@ Route::group(['prefix' => 'products', 'as' => 'products'], function () {
     Route::delete('group/delete/{id}', [ProductGroupsController::class, 'deleteGroup'])
         ->middleware('permissions:can_manage_groups');
 
-    // Product Attribute
+    // مسارات خصائص المنتجات
     Route::get('attribute', [ProductAttributesController::class, 'getAttribute']);
     Route::post('variant-attributes', [ProductAttributesController::class, 'getAttributeList']);
     Route::get('product-variant-attribute', [ProductAttributesController::class, 'getProductAttributeList']);
@@ -87,11 +85,13 @@ Route::group(['prefix' => 'products', 'as' => 'products'], function () {
     Route::post('attribute/{id}', [ProductAttributesController::class, 'updateAttribute'])
         ->middleware('permissions:can_manage_variant_attribute');
 
-    // Product Units
+    // مسارات وحدات المنتجات
     Route::post('unit/store', [ProductUnitsController::class, 'store']);
     Route::post('units', [ProductUnitsController::class, 'getUnit']);
     Route::post('unit/{id}', [ProductUnitsController::class, 'update']);
     Route::get('unit/{id}', [ProductUnitsController::class, 'show']);
     Route::post('unit/delete/{id}', [ProductUnitsController::class, 'delete']);
+    
+    // مسار تصدير جميع المنتجات
     Route::get('export/all', [ProductExportController::class, 'exportAllProduct']);
 });

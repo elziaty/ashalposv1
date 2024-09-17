@@ -1,5 +1,5 @@
 <?php
-//product module
+// Product module
 use App\Http\Controllers\API\TodoListController;
 
 Route::group(['prefix' => 'todo'], function () {
